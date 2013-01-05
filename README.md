@@ -22,9 +22,10 @@ require('./appcache.js')({files: [
 ]}, app)
 ````
 
-Cache rebuilds upon app restart.
+No cache.manifest (called app.cache here) file needed.  It's served from memory by Express.
+Cache resets upon app restart.
 
-$ node test.js
+$ node app.js
 
 ###app.js
 ````
