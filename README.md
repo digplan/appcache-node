@@ -6,7 +6,7 @@ appcache-node
 Why! Why! Why!
 
 Big performance increase, reduced load on yr servers.
-This is for Nodejs & Express.  Only two lines needed.
+This is for Nodejs & Express.  Only two lines needed. Let their browsers do the work!
 
 ####In any HTML page you wish to cache..
 ````
