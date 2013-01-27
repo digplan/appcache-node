@@ -27,9 +27,7 @@ require('appcache-node')({files: [
 ], app)
 ````
 
-No messing with a cache manifest on the server.  Use a CDN, eh?  That's so 2012.
-/app.cache  is in memory and automatically served by Express.
+No messing with a cache manifest on the server. /app.cache is in memory and automatically served by Express.
+Kids on the net say to improve performance, use a CDN!  So 2012.
 
-Just restart your app to invalidate the cache. Browsers will now load the page again.
-
-#### Now for the 'Network' tab
+So what about when you edit your page, need those caches out these invalidated.  Restart of your app in node is all you need.
