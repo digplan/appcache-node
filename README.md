@@ -5,61 +5,31 @@ appcache-node
 
 Why! Why! Why!
 
-This is for easy use in Express.  The potential performance gain is pretty ridicuous.
+Big performance increase, reduced load on yr servers.
+This is for Nodejs & Express.  Only two lines needed.
 
-In each HTML page you need to cache..
+####In any HTML page you wish to cache..
 ````
 <html manifest="app.cache">
 ````
 
-Other files to cache in your app.js
+####In the app.js..
 ````
-require('./appcache.js')({files: [
+require('appcache-node')({files: []}, app)
+````
+
+Browser now caches your page in the HTML5 app cache.  You control other links in the page to cache like so..
+````
+require('appcache-node')({files: [
 	// no need to include html files that start with <html manifest="app.cache">
 	'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
 	, 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-
-]}, app)
+], app)
 ````
 
-No cache.manifest (called app.cache here) file needed.  It's served from memory by Express.
-Cache resets upon app restart.
+No messing with a cache manifest on the server.  Use a CDN, eh?  That's so 2012.
+/app.cache  is in memory and automatically served by Express.
 
-$ node app.js
+Just restart your app to invalidate the cache. Browsers will now load the page again.
 
-###app.js
-````
-var express = require('express'), app = express();
-app.listen(3000);
-console.log('listening on 3000')
-
-require('./appcache.js')({files: [
-	// no need to include html files that start with <html manifest="app.cache">
-	'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
-	, 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-
-]}, app)
-
-app.all('/index.html', function(r, s){
-		s.sendfile('index.html')
-})
-````
-
-###index.html
-````
-<html manifest="app.cache">
-
-<head>
-	<title>HTML 5 App cache example</title>
-	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-	</script>
-</head>
-<body>
-	<h1>I am cached!</h1>
-
-	<h3>Save 140kb, caching Bootstrap</h3>
-
-	<h5>View cache in Chrome -- chrome://appcache-internals/
-</body>
-````
+#### Now for the 'Network' tab
