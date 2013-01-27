@@ -30,4 +30,4 @@ require('appcache-node')({files: [
 No messing with a cache manifest on the server. /app.cache is in memory and automatically served by Express.
 Kids on the net say to improve performance, use a CDN!  So 2012.
 
-So what about when you edit your page, need those caches out these invalidated.  Restart of your app in node is all you need.
+When you restart your app, the app.cache is rebuilt and so cache cleared.
