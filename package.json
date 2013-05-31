@@ -5,12 +5,12 @@
   "keywords"      : ["util", "nodejs", "express", "web", "html5"],
   "author"        : "C Borkert <ILIKECHEESE@dpsw.info>",
   "dependencies": {
-		"express":"",
+	"express":"",
   },
   "main": "appcache.js",
   "repository": {
   	"type": "git",
-		"url": "git://github.com/dpweb/appcache-node.git"
+ 	"url": "git://github.com/dpweb/appcache-node.git"
   },
   "version"       : "0.0.2"
 }
