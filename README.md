@@ -24,7 +24,7 @@ require('appcache-node')({files: [
 	// no need to include html files that start with <html manifest="app.cache">
 	'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
 	, 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-], app)
+]}, app)
 ````
 
 No messing with a cache manifest on the server. /app.cache is in memory and automatically served by Express.
