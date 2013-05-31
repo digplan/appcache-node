@@ -4,9 +4,6 @@
   "url"           : "http://github.com/dpweb/appcache-node/",
   "keywords"      : ["util", "nodejs", "express", "web", "html5"],
   "author"        : "C Borkert <ILIKECHEESE@dpsw.info>",
-  "dependencies": {
-	"express":"",
-  },
   "main": "appcache.js",
   "repository": {
   	"type": "git",
