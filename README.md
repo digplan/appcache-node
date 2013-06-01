@@ -10,7 +10,7 @@ This is for Nodejs & Express.  Only two lines needed. Let their browsers do the 
 
 ####In any HTML page you wish to cache..
 ````
-<html manifest="app.cache">
+<html manifest="app.cache"> 
 ````
 
 ####In the app.js..
