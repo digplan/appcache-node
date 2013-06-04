@@ -1,4 +1,4 @@
-function appcache(options, app){
+module.exports = function(options, app){
     	options = options || {};
     	var lines = (options && options.files) || [], 
         	path = (options && options.path) || 'app.cache';
@@ -17,6 +17,3 @@ function appcache(options, app){
 
     	if('reset' in options) setInterval(setit, options.reset)
 }
-
-if(module && module.parent && module.exports) module.exports = appcache;
-	else console.log(appcache({files:['file1', 'file2']}, {all:function(){}} ));
