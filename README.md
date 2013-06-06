@@ -4,7 +4,15 @@ appcache-node
 ###Let their browsers do the work
 
 This module auto-generates your HTML5 Application Cache manifest, making it very easy to implement.
-  
+
+####Installation
+````
+$ npm install appcache-node
+
+OR
+
+$ git clone https://github.com/dpweb/appcache-node
+````
 ####In any HTML page you wish to cache..
 ````  
 <html manifest="app.cache"> 
