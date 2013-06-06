@@ -2,6 +2,8 @@ appcache-node
 =============
    
 ###Let their browsers do the work
+
+This module auto-generates your HTML5 Application Cache manifest, making it very easy to implement.
   
 ####In any HTML page you wish to cache..
 ````  
