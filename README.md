@@ -16,8 +16,11 @@ require('appcache-node')({files: []}, app)
 Server generates an app.cache file, so HTML5 Application Cache will force browsers to load their local copy.    
 This makes for massive decrease on your server load.    
 
-Any html file served from your site declared with <html manifest="app.cache"> will be cached.
-You can see the entire app cache in Chrome by going to chrome://appcache-internals    
+Any html file served from your site declared with 
+````
+<html manifest="app.cache"> 
+````
+will be cached.  You can see the entire app cache in Chrome by going to chrome://appcache-internals    
 
 You choose whatever JS and CSS your page uses, to cache as well.  Use the files array..
 ````
