@@ -1,16 +1,11 @@
-module.exports = function(options, app){
-        options = options || {};
-        var lines = options.files || [],
-            path = options.path || 'app.cache';
-
-        lines.unshift('CACHE MANIFEST', '', 'CACHE:');
-        lines.push('', '# ' + new Date());
-        app.cachefile = lines.join('\r\n');
-
-        app.all('/'+path, function(r, s){
-            s.writeHead(200, {
-                'Content-Type': 'text/cache-manifest'
-            });
-            s.end(app.cachefile);
-        });
+module.exports = {
+    newCache: function(files){
+        files.unshift('CACHE MANIFEST', '', 'CACHE:');
+        files.push('', '# ' + new Date());
+        return files.join('\r\n');
+    },
+    toDataURI: function(fn){
+        return 'data:image/' + fn.match(/..\.(.*)$/)[1] + ';base64,' + 
+            require('fs').readFileSync('./epic.png').toString('base64');
+    }
 }
