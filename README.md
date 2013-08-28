@@ -20,25 +20,44 @@ In your app
 var c = require('appcache-node');
 
 // generate a cache file
-var cf = c.newCache();
+var cf = c.newCache([]);
+````
 
-// in your request handler
+OR add additional JS, CSS, etc in the page to cache
+note, currently if your HTML has references to JS and CSS hosted on different servers
+(such as JQuery hosted on a CDN) include them here
+
+````
+var cf = c.newCache(
+  [
+	'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
+	, 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
+  ]
+);
+````
+
+Then for your server to serve the cache file (in your request handler)
+
+NodeJS
+````
+require('http').createServer(function(req, res){
 if(r.url.match(/app\.cache$/)){
 	s.writeHead(200, {'Content-Type': 'text/cache-manifest'});
 	return s.end(cf);
 }
 ````
 
-While your HTML page caches automatically, you specify any JS, CSS, IMG, etc.. your page uses, so you have full control over which files are included in the cache.
+Express
 ````
-var c = require('appcache-node')([
-	'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
-	, 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-]);
+var app = express();
+app.all('/app.cache', function(req, res){
+    res.end(cf);
+})
 ````
 
-When you restart your app, the app.cache is rebuilt and so cache is cleared.  
-or here's a trick to have the cache reset every hour, if you want browsers to have to reload periodically.
+When you restart your app, the app.cache is cleared and rebuilt.    
+
+Here's a trick to have the cache reset every hour, if you want browsers to have to reload periodically.
 ````
 // generate a cache file
 var cf = c.newCache([
