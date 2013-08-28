@@ -23,9 +23,10 @@ var c = require('appcache-node');
 var cf = c.newCache([]);
 ````
 
-OR add additional JS, CSS, etc in the page to cache
-note, currently if your HTML has references to JS and CSS hosted on different servers
-(such as JQuery hosted on a CDN) include them here
+Add additional JS, CSS, etc in the page to cache.    
+
+Currently if your HTML has references to JS and CSS hosted on different servers
+(such as JQuery hosted on a CDN), you should include them here..
 
 ````
 var cf = c.newCache(
