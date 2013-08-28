@@ -43,8 +43,8 @@ NodeJS
 ````
 require('http').createServer(function(req, res){
 if(r.url.match(/app\.cache$/)){
-	s.writeHead(200, {'Content-Type': 'text/cache-manifest'});
-	return s.end(cf);
+	res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
+	return res.end(cf);
 }
 ````
 
@@ -52,6 +52,7 @@ Express
 ````
 var app = express();
 app.all('/app.cache', function(req, res){
+    res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
     res.end(cf);
 })
 ````
