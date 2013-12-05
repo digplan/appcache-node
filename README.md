@@ -5,6 +5,8 @@ appcache-node
 
 This module auto-generates your HTML5 Application Cache manifest, making it very easy to implement.  For any NodeJS web server.  This makes for massive decrease on your server load.  
 
+## Please send bug reports (issues), they will be fixed.
+
 ###Installation
 ````
 $ npm install appcache-node
